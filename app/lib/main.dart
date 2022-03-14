@@ -1,4 +1,8 @@
+import 'package:app/add_new.dart';
+import 'package:app/view_old.dart';
 import 'package:flutter/material.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //Navigation to other screens using routes.
-      initialRoute: "/",
-      routes: {"/": (context) => HomePage()},
+      initialRoute: '/',
+      routes: {'/': (context) => const HomePage(),
+      '/view_old': (context) => const ViewPage(),
+      "/add_new": (context) => const AddNewPage(),
+      }
     );
   }
 }
