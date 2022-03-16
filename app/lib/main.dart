@@ -35,8 +35,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(224, 230, 233, 1.0),
       appBar: AppBar(
-        title: Text("Student Journal Memories"),
+        backgroundColor: const Color.fromRGBO(74, 51, 65, 1.0),
+        title: const Text("Student Journal Memories"),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromRGBO(74, 51, 65, 1.0),
+        child: Icon(Icons.add),
+        onPressed: () {
+          print("Add new journal entry.");
+          Navigator.pushNamed(context, "/add_new");
+        },
       ),
     );
   }

@@ -6,8 +6,10 @@ class ViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromRGBO(224, 230, 233, 1.0),
         appBar: AppBar(
-      title: const Text("View Old Entry"),
-    ));
+          backgroundColor: Color.fromRGBO(74, 51, 65, 1.0),
+          title: const Text("View Old Entry"),
+        ));
   }
 }
