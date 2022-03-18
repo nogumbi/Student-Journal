@@ -31,10 +31,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // getEntries() async {
-  //   final entry = await DatabaseProvider.db.getEntries();
-  //   return entry;
-  // }
+  getEntries() async {
+    final entry = await DatabaseProvider.db.getEntries();
+    return entry;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
       //           }
       //         }
       //       }
-      //     }),
+      //     ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color.fromRGBO(74, 51, 65, 1.0),
