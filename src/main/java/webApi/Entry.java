@@ -1,3 +1,5 @@
+package main.java.webApi;
+
 public class Entry{
     private Integer id;
     private String title;
