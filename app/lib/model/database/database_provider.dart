@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:app/database/journal_model.dart';
+
+import 'package:app/model/database/journal_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -20,6 +21,7 @@ class DatabaseProvider {
      return _database;
   }
 
+  //Initialize the database and create table if not available.
   initDB() async {
     return await openDatabase(join(await getDatabasesPath(), "journal.db"),
     onCreate: (db, version) async {
