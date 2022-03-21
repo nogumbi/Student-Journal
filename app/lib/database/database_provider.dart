@@ -1,7 +1,7 @@
 import 'dart:async';
 
 
-import 'package:app/model/database/journal_model.dart';
+import 'package:app/database/journal_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

@@ -1,7 +1,7 @@
-import 'package:app/model/database/database_provider.dart';
-import 'package:app/model/add_new.dart';
-import 'package:app/model/home.dart';
-import 'package:app/model/view_old.dart';
+import 'package:app/database/database_provider.dart';
+import 'package:app/add_new.dart';
+import 'package:app/home.dart';
+import 'package:app/view_old.dart';
 import 'package:flutter/material.dart';
 
 
