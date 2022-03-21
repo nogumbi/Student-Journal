@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'database/database_provider.dart';
 import 'database/database_provider.dart';
 import 'database/journal_model.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,15 +14,15 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-// call the API and fetch the response
-Future<JournalModel> fetchQuote() async {
-  final response = await http.get('http://localhost:5000/entries');
-  if (response.statusCode == 200) {
-    return JournalModel.fromJson(json.decode(response.body));
-  } else {
-    throw Exception('Failed to load Quote');
-  }
-}
+// // call the API and fetch the response
+// Future<JournalModel> fetchQuote() async {
+//   final response = await http.get('http://localhost:5000/entries');
+//   if (response.statusCode == 200) {
+//     return JournalModel.fromJson(json.decode(response.body));
+//   } else {
+//     throw Exception('Failed to load Quote');
+//   }
+// }
 
 class _HomePageState extends State<HomePage> {
   getEntries() async {

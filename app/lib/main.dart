@@ -31,11 +31,43 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(224, 230, 233, 1.0),
-        appBar: AppBar(
-          backgroundColor: Color.fromRGBO(74, 51, 65, 1.0),
-          title: const Text("Login"),
-        ));
+        backgroundColor: const Color.fromRGBO(224, 230, 233, 1.0),
+        body: Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(begin: Alignment.topCenter,
+            colors:[
+              Color.fromRGBO(109, 77, 110, 1.0),
+              Color.fromRGBO(126, 105, 145, 1.0),
+              Color.fromRGBO(163, 164, 190, 1.0),
+            ])
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                height: 80,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const <Widget>[
+                    Text(
+                      "Login",
+                      style: TextStyle(color: Color.fromRGBO(224, 230, 233, 1.0), fontSize:40),
+                    ),
+                    SizedBox(height: 10,),
+                    Text(
+                      "Welcotme Back, share your thoughts.",
+                      style: TextStyle(color: Color.fromRGBO(224, 230, 233, 1.0), fontSize:18),
+                    ),]
+                )
+              )
+            ]
+          )
+        )
+        );
   }
 }
 
