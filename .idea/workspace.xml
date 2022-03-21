@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d50d234-a0da-4605-bfb4-30eea6ee4092" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webApi/Entry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webApi/EntryApiHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webApi/EntryDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webApi/EntryServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webApi/TestDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/model/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/model/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
