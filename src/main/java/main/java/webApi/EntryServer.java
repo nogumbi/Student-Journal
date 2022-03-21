@@ -1,9 +1,13 @@
+package main.java.webApi;
+
 import io.javalin.Javalin;
+
+
 
 public class EntryServer {
     private final Javalin server;
 
-    public QuoteServer(){
+    public EntryServer(){
         server = Javalin.create(config -> {
             config.defaultContentType = "application/json";
         });

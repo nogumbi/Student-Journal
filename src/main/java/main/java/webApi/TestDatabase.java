@@ -1,5 +1,8 @@
 package main.java.webApi;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TestDatabase implements EntryDB {
@@ -15,7 +18,7 @@ public class TestDatabase implements EntryDB {
 
     @Override
     public Entry get(Integer id) {
-        return entry.get(id);
+        return entries.get(id);
     }
 
     @Override
@@ -25,7 +28,7 @@ public class TestDatabase implements EntryDB {
 
     @Override
     public Entry add(Entry entry) {
-        Integer index = entry.size() + 1;
+        Integer index = entries.size() + 1;
         entry.setId(index);
         entries.put(index, entry);
         return entry;
