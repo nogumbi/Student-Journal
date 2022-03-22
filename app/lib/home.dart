@@ -16,7 +16,10 @@ class HomePage extends StatefulWidget {
 
 // call the API and fetch the response
 Future<JournalModel> fetchEntry() async {
-  final response = await http.get(Uri.parse('http://localhost:5000/entries'));
+  final response = await http.get(Uri.parse('http://localhost:5000/entries', headers: {
+          "Accept": "application/json",
+          "Access-Control_Allow_Origin": "*"
+        }));
   if (response.statusCode == 200) {
     return JournalModel.fromJson(json.decode(response.body));
   } else {
@@ -25,9 +28,15 @@ Future<JournalModel> fetchEntry() async {
 }
 
 class _HomePageState extends State<HomePage> {
-  getEntries() async {
-    final entry = await DatabaseProvider.db.getEntries();
-    return entry;
+  // getEntries() async {
+  //   final entry = await DatabaseProvider.db.getEntries();
+  //   return entry;
+  late Future<JournalModel> getEntries;
+
+  @override
+  void initState(){
+    super.initState(); 
+    getEntries = fetchEntry();
   }
 
   @override
@@ -38,6 +47,19 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color.fromRGBO(74, 51, 65, 1.0),
         title: const Text("Student Journal Memories"),
       ),
+      body: Center(
+          child: FutureBuilder<JournalModel>(
+            future: getEntries,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Text(snapshot.data!.title);
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
+              return CircularProgressIndicator();
+            },
+          ),
+        ),
       // body: FutureBuilder(
       //     future: getEntries(),
       //     builder: (context, journalData){
