@@ -15,14 +15,14 @@ class HomePage extends StatefulWidget {
 }
 
 // call the API and fetch the response
-// Future<JournalModel> fetchQuote() async {
-//   final response = await http.get('http://localhost:5000/entries');
-//   if (response.statusCode == 200) {
-//     return JournalModel.fromJson(json.decode(response.body));
-//   } else {
-//     throw Exception('Failed to load Quote');
-//   }
-// }
+Future<JournalModel> fetchEntry() async {
+  final response = await http.get(Uri.parse('http://localhost:5000/entries'));
+  if (response.statusCode == 200) {
+    return JournalModel.fromJson(json.decode(response.body));
+  } else {
+    throw Exception('Failed to load Entry');
+  }
+}
 
 class _HomePageState extends State<HomePage> {
   getEntries() async {
