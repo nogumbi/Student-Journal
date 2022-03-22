@@ -61,13 +61,90 @@ class LoginPage extends StatelessWidget {
                     Text(
                       "Welcotme Back, share your thoughts.",
                       style: TextStyle(color: Color.fromRGBO(224, 230, 233, 1.0), fontSize:18),
-                    ),]
-                )
-              )
-            ]
-          )
-        )
-        );
+                    ),],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Expanded(
+                child:Container(
+                  decoration: const BoxDecoration(
+                    color:Color.fromRGBO(224, 230, 233, 1.0),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(60),
+                      topRight: Radius.circular(60))),
+                  child: SingleChildScrollView(
+                    child: Padding (
+                      padding: const EdgeInsets.all(30),
+                      child: Column (
+                        children: <Widget>[
+                          const SizedBox(
+                            height: 60,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(224, 230, 233, 1.0),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Color.fromRGBO(74, 51, 65, 1.0),
+                                  blurRadius: 20,
+                                  offset: Offset(0, 10))
+                              ]),
+                          
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                  decoration: const BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: Color.fromRGBO(126, 105, 145, 1.0)))),
+                                        child: const TextField(
+                                          decoration: InputDecoration(
+                                            hintText: "Email Address",
+                                            hintStyle: TextStyle(color: Color.fromRGBO(163, 164, 190, 1.0)), 
+                                            border: InputBorder.none),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            border: Border(
+                                              bottom: BorderSide(
+                                                color: Color.fromRGBO(126, 105, 145, 1.0)))),
+                                                child: const TextField(
+                                                  decoration: InputDecoration(
+                                                    hintText: "Password",
+                                                    hintStyle: TextStyle(color: Color.fromRGBO(163, 164, 190, 1.0)), 
+                                                    border: InputBorder.none),
+                                                ),
+                                              ),
+                            ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 40),
+                                  const Text("Forgot Password?", style: TextStyle(color: Color.fromRGBO(126, 105, 145, 1.0))),
+                                // SizedBox(height:20,),
+                                // Container(
+                                //   height: 50,
+                                //   margin:)
+                                ],
+                              ),
+                    ),),),
+                          )
+                        ]
+                  ),
+                        ),
+                              floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: const Color.fromRGBO(74, 51, 65, 1.0),
+        onPressed: () {
+          // ignore: avoid_print
+          print("Welcome to your memories.");
+          Navigator.pushNamed(context, "/home");
+        },
+        label: const Text("LOGIN"),
+      ),
+    );
   }
 }
 
