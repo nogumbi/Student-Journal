@@ -2,14 +2,14 @@ class JournalModel {
   int id;
   String title;
   String description;
-  DateTime created;
+
 
 
   JournalModel(
       {required this.id,
       required this.title,
       required this.description,
-      required this.created
+     
 
       });
 
@@ -18,7 +18,6 @@ class JournalModel {
       "id": id,
       "title": title,
       "description": description,
-      "created": created,
      
     });
     
@@ -28,7 +27,7 @@ class JournalModel {
         id: json['id'],
         title: json['title'],
         description: json['description'],
-        created: json['created'],
+       
       );
     }
 }

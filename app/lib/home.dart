@@ -15,28 +15,28 @@ class HomePage extends StatefulWidget {
 }
 
 // call the API and fetch the response
-Future<JournalModel> fetchEntry() async {
-  final response = await http.get(Uri.parse('http://localhost:5000/entries', headers: {
-          "Accept": "application/json",
-          "Access-Control_Allow_Origin": "*"
-        }));
+Future <List<JournalModel>> fetchData() async {
+  final response =
+      await http.get(Uri.parse('http://localhost:5000/entries'));
   if (response.statusCode == 200) {
-    return JournalModel.fromJson(json.decode(response.body));
+    List jsonResponse = json.decode(response.body);
+      return jsonResponse.map((data) => JournalModel.fromJson(data)).toList();
   } else {
-    throw Exception('Failed to load Entry');
+    throw Exception('Unexpected error occured!');
   }
 }
+
 
 class _HomePageState extends State<HomePage> {
   // getEntries() async {
   //   final entry = await DatabaseProvider.db.getEntries();
   //   return entry;
-  late Future<JournalModel> getEntries;
+ late Future <List<JournalModel>> getEntries;
 
   @override
   void initState(){
     super.initState(); 
-    getEntries = fetchEntry();
+    getEntries = fetchData();
   }
 
   @override
@@ -48,58 +48,32 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Student Journal Memories"),
       ),
       body: Center(
-          child: FutureBuilder<JournalModel>(
+          child: FutureBuilder <List<JournalModel>>(
             future: getEntries,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data!.title);
+                List<JournalModel>? data = snapshot.data;
+                return 
+                ListView.builder(
+                itemCount: data!.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    height: 75,
+                    color: Colors.white,
+                    child: Center(
+                      child: Text(data[index].title,
+                    ),
+                  ),); 
+                }
+              );
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }
+              // By default show a loading spinner.
               return CircularProgressIndicator();
             },
           ),
         ),
-      // body: FutureBuilder(
-      //     future: getEntries(),
-      //     builder: (context, journalData){
-      //       switch (journalData.connectionState) {
-      //         case ConnectionState.waiting:
-      //           {
-      //             return const Center(child: CircularProgressIndicator());
-      //           }
-
-      //         case ConnectionState.done:
-      //             {
-      //             if (journalData.data == Null) {
-      //               return const Center(
-      //                 child: Text(
-      //                     "You do not have any entries yet. Create a new entry"),
-      //               );
-      //             } else {
-      //               return Padding(
-      //                 padding: const EdgeInsets.all(8.0),
-      //                 child: ListView.builder(
-      //                   itemCount: journalData.data.length,
-      //                   itemBuilder: (context, index) {
-      //                     String title = journalData.data[index]['title'];
-      //                     String description = journalData.data[index]['description'];
-      //                     String created = journalData.data[index]['created'];
-      //                     int id = journalData.data[index]['id'];
-      //                     return Card(
-      //                       child: ListTile(
-      //                         title: Text(title),
-      //                         subtitle: Text(description),
-      //                       ),
-      //                     );
-      //                   },
-      //                 ),
-      //               );
-      //             }
-      //           }
-      //         }
-      //       }
-      //     ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color.fromRGBO(74, 51, 65, 1.0),
