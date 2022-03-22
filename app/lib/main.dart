@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     SizedBox(height: 10,),
                     Text(
-                      "Welcotme Back, share your thoughts.",
+                      "Welcome Back, Share Your Thoughts.",
                       style: TextStyle(color: Color.fromRGBO(224, 230, 233, 1.0), fontSize:18),
                     ),],
                 ),
