@@ -1,4 +1,3 @@
-import 'package:app/database/database_provider.dart';
 import 'package:app/add_new.dart';
 import 'package:app/home.dart';
 import 'package:app/view_old.dart';
@@ -135,7 +134,7 @@ class LoginPage extends StatelessWidget {
                         ]
                   ),
                         ),
-                              floatingActionButton: FloatingActionButton.extended(
+                            floatingActionButton: FloatingActionButton.extended(
         backgroundColor: const Color.fromRGBO(74, 51, 65, 1.0),
         onPressed: () {
           // ignore: avoid_print

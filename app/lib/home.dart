@@ -2,8 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import 'database/database_provider.dart';
-import 'database/database_provider.dart';
 import 'database/journal_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -54,29 +52,40 @@ class _HomePageState extends State<HomePage> {
               return ListView.builder(
                   itemCount: data!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            data[index].title,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                                padding: const EdgeInsets.all(10),
+                                  decoration: const BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: Color.fromRGBO(126, 105, 145, 1.0)))),
+                                  child: Text(
+                                    data[index].title,
+                                    textAlign: TextAlign.start,
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                        ),
+                         Container(
+                                padding: const EdgeInsets.all(10),
+                                  decoration: const BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: Color.fromRGBO(126, 105, 145, 1.0)))),
+                                  child: Text(
+                          data[index].description,
+                          textAlign: TextAlign.start,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
                           ),
-                          Text(
-                            data[index].description,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                          ) ],
                     );
                   });
             } else if (snapshot.hasError) {
@@ -85,7 +94,7 @@ class _HomePageState extends State<HomePage> {
               );
             }
             // By default show a loading spinner.
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           },
         ),
       ),

@@ -12,7 +12,7 @@ public class EntryServer {
             config.defaultContentType = "application/json";
         });
         this.server.get("/entries", context -> EntryApiHandler.getAllEntries(context));
-        this.server.get("/entries{id}", context -> EntryApiHandler.getOne(context));
+        this.server.get("/entries/{id}", context -> EntryApiHandler.getOne(context));
         this.server.post("/entries", context -> EntryApiHandler.createEntry(context));
     }
 
