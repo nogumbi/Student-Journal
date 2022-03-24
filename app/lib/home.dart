@@ -43,15 +43,8 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color.fromRGBO(74, 51, 65, 1.0),
         title: const Text("Student Journal Memories"),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(begin: Alignment.topCenter,
-            colors:[
-              Color.fromRGBO(109, 77, 110, 1.0),
-              Color.fromRGBO(126, 105, 145, 1.0),
-              Color.fromRGBO(163, 164, 190, 1.0),
-            ])
-          ),
+      body: Center(
+        
         child: FutureBuilder<List<JournalModel>>(
           future: getEntries,
           builder: (context, snapshot) {
@@ -65,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Container(
+                          
                                 padding: const EdgeInsets.all(10),
                                   decoration: const BoxDecoration(
                                     border: Border(
@@ -80,6 +74,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                         ),
                          Container(
+                           
                                 padding: const EdgeInsets.all(10),
                                   decoration: const BoxDecoration(
                                     border: Border(
@@ -109,11 +104,11 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color.fromRGBO(74, 51, 65, 1.0),
-        child: Icon(Icons.add),
         onPressed: () {
           print("Add new journal entry.");
           Navigator.pushNamed(context, "/add_new");
         },
+        
       ),
     );
   }
