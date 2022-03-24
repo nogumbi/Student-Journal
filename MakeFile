@@ -1,0 +1,16 @@
+serverPath=pom.xml
+
+all: clean verify compile
+
+verify:
+	mvn verify -DskipTests -f $(serverPath)
+
+clean:
+	mvn clean -f $(serverPath)
+
+compile:
+	mvn compile -f $(serverPath)
+
+package:
+	mvn package -f $(serverPath) -DskipTests
+	
