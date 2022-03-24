@@ -1,56 +1,55 @@
-import 'dart:async';
+// import 'dart:async';
 
 
-import 'package:app/database/journal_model.dart';
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
+// import 'package:app/database/journal_model.dart';
+// import 'package:path/path.dart';
+// import 'package:sqflite/sqflite.dart';
 
-class DatabaseProvider {
+// class DatabaseProvider {
   
-  DatabaseProvider._();
+//   DatabaseProvider._();
 
-  static final DatabaseProvider db = DatabaseProvider._();
-  late Database _database;
+//   static final DatabaseProvider db = DatabaseProvider._();
+//   late Database _database;
 
-  Future<Database> get database async {
-    // Create a getter database and check if it doesn't already exist.
-    if (_database != null) {
-      return _database;
-    }
-     _database = await initDB();
-     return _database;
-  }
+//   Future<Database> get database async {
+//     // Create a getter database and check if it doesn't already exist.
+//     if (_database != null) {
+//       return _database;
+//     }
+//      _database = await initDB();
+//      return _database;
+//   }
 
-  //Initialize the database and create table if not available.
-  initDB() async {
-    return await openDatabase(join(await getDatabasesPath(), "journal.db"),
-    onCreate: (db, version) async {
-      await db.execute('''
-      CREATE TABLE journal (
-        id INTERGER PRIMARY AUTOINCREMET,
-        title TEXT,
-        description TEXT,
-        created DATE
-      )
-      ''');
-    }, version: 1);
-  }
+//   //Initialize the database and create table if not available.
+//   initDB() async {
+//     return await openDatabase(join(await getDatabasesPath(), "journal.db"),
+//     onCreate: (db, version) async {
+//       await db.execute('''
+//       CREATE TABLE journal (
+//         id INTERGER PRIMARY AUTOINCREMET,
+//         title TEXT,
+//         description TEXT,
+//       )
+//       ''');
+//     }, version: 1);
+//   }
   
-  addJournal(JournalModel entry) async {
-    final db = await database;
-    db.insert("entry", entry.toMap(),
-    conflictAlgorithm:  ConflictAlgorithm.replace);
-  }
+//   addJournal(JournalModel entry) async {
+//     final db = await database;
+//     db.insert("entry", entry.toMap(),
+//     conflictAlgorithm:  ConflictAlgorithm.replace);
+//   }
 
-  Future<dynamic> getEntries() async {
-    final db = await database;
-    var res = await db.query("entry");
-    if (res.length == 0) {
-      return null;
-    }else {
-      var result = res.toList();
-      return result.isNotEmpty ? result : Null;
-    }
-  }
-}
+//   Future<dynamic> getEntries() async {
+//     final db = await database;
+//     var res = await db.query("entry");
+//     if (res.length == 0) {
+//       return null;
+//     }else {
+//       var result = res.toList();
+//       return result.isNotEmpty ? result : Null;
+//     }
+//   }
+// }
  
