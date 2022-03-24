@@ -14,7 +14,7 @@ class ViewPage extends StatefulWidget {
 
 // call the API and fetch the response
 Future<List<JournalModel>> fetchData() async {
-  final response = await http.get(Uri.parse('http://localhost:5000/entries/1'));
+  final response = await http.get(Uri.parse('http://localhost:5000/entries/2'));
   if (response.statusCode == 200) {
     List jsonResponse = json.decode(response.body);
     return jsonResponse.map((data) => JournalModel.fromJson(data)).toList();
