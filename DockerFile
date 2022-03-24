@@ -1,0 +1,8 @@
+
+FROM ubuntu:latest
+LABEL author="nogumbi@student.wethinkcode.co.za"
+ 
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+ 

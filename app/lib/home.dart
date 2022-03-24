@@ -43,7 +43,15 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color.fromRGBO(74, 51, 65, 1.0),
         title: const Text("Student Journal Memories"),
       ),
-      body: Center(
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(begin: Alignment.topCenter,
+            colors:[
+              Color.fromRGBO(109, 77, 110, 1.0),
+              Color.fromRGBO(126, 105, 145, 1.0),
+              Color.fromRGBO(163, 164, 190, 1.0),
+            ])
+          ),
         child: FutureBuilder<List<JournalModel>>(
           future: getEntries,
           builder: (context, snapshot) {
